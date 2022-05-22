@@ -1,0 +1,36 @@
+
+class Solution {
+    public int search(ArrayReader reader, int target) {
+        int low=0;
+        int high=Integer.MAX_VALUE;
+        boolean flag=false;
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(reader.get(mid)==Integer.MAX_VALUE&&!flag)
+            {
+                high=high/2;
+                flag=true;
+            }
+            else if(reader.get(mid)==target)
+            {
+                return mid;
+            }
+            else if(reader.get(mid)>target)
+            {
+                high=mid-1;
+            }
+            else
+            {
+               
+                low=mid+1;
+                if(!flag)
+                {
+                    high=high*2;
+                }
+                System.out.println(low+" "+high);
+            }
+        }
+        return -1;
+    }
+}
