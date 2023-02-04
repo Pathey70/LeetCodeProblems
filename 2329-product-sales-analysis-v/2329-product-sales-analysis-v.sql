@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select s.user_id,sum(p.price*s.quantity) as spending from Sales s,Product p where p.product_id=s.product_id group by s.user_id order by sum(p.price*s.quantity) DESC,s.user_id ASC;
