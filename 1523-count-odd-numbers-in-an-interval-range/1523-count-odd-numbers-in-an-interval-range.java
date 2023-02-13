@@ -1,10 +1,6 @@
 class Solution {
     public int countOdds(int low, int high) {
-        int total=(high-low+1);
-        if(total%2==0)
-            return total/2;
-        else
-            return low%2==0? total/2:total/2+1;
+        return (high-low+1)%2==0? (high-low+1)/2: low%2==0? (high-low+1)/2 :(high-low+1)/2+1;  
         
     }
 }
