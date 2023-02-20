@@ -14,9 +14,10 @@ class Solution {
             return;
         dp[x][y]=Math.max(grid[x][y],maxPathCost);
         maxPathCost=dp[x][y];
-        dfs(grid,x+1,y,maxPathCost,n,dp);
-        dfs(grid,x-1,y,maxPathCost,n,dp);
         dfs(grid,x,y+1,maxPathCost,n,dp);
         dfs(grid,x,y-1,maxPathCost,n,dp);
+        dfs(grid,x+1,y,maxPathCost,n,dp);
+        dfs(grid,x-1,y,maxPathCost,n,dp);
+       
     }
 }
