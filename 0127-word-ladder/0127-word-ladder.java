@@ -50,8 +50,10 @@ class Solution {
                 visited[node[0]]=true;
                 List<Integer> li=graph.get(node[0]);
                 for(Integer i:li){
-                    int[] next={i,node[1]+1};
-                    queue.add(next);
+                    if(!visited[i]){
+                        int[] next={i,node[1]+1};
+                        queue.add(next);
+                    }
                 }
             }
         }
