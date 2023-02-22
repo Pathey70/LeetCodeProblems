@@ -1,8 +1,5 @@
 
 class Solution {
-    HashMap<String,Integer> hm=new HashMap<String,Integer>();
-    HashMap<String,Integer> hm1=new HashMap<String,Integer>();
-    HashMap<String,Integer> hm2=new HashMap<String,Integer>();
     public boolean calculateDistance(String s1,String s2)
     {
         int count=0;
@@ -17,45 +14,7 @@ class Solution {
         return count==1 ? true : false;
     }
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        /*boolean end=false;
-        for(int i=0;i<wordList.size();i++)
-        {
-            int d=calculateDistance(wordList.get(i),endWord);
-            if(d==0)
-            {
-                end=true;
-                hm.put(wordList.get(i),Integer.MAX_VALUE);
-                hm1.put(wordList.get(i),d);
-                hm2.put(wordList.get(i),Integer.MAX_VALUE);
-            }
-            else
-            {
-                //List<Integer> li=new ArrayList<Integer>();
-                //li.add(d);
-                //li.add(Integer.MAX_VALUE)
-                hm.put(wordList.get(i),Integer.MAX_VALUE);
-                hm1.put(wordList.get(i),d);
-                hm2.put(wordList.get(i),Integer.MAX_VALUE);
-            }
-        }
-        hm.put(beginWord,Integer.MAX_VALUE);
-        hm1.put(beginWord,calculateDistance(beginWord,endWord));
-        hm2.put(beginWord,Integer.MAX_VALUE);
-        if(end)
-        {
-            int ans=findMinPath(beginWord,endWord,wordList,0);
-            if(ans==Integer.MAX_VALUE)
-            {
-                return 0;
-            }
-            else{
-                return ans;
-            }
-        }
-        else
-        {
-            return 0;
-        }*/
+   
         wordList.add(beginWord);
         //wordList.add(endWord);
         int n=wordList.size();
@@ -98,43 +57,5 @@ class Solution {
         }
         return 0;
     }
-    /*public int findMinPath(String beginWord,String endWord,List<String> wordList,int level)
-    {
-        if(beginWord.equals(endWord))
-        {
-            return level;
-        }
-        int min=Integer.MAX_VALUE;
-        int d=hm1.get(beginWord);
-        for(int i=0;i<wordList.size();i++)
-        {
-            String word=wordList.get(i);
-            if(calculateDistance(word,beginWord)==1)
-            {
-                
-                    if(hm.get(word)>level)
-                    {
-                        if(hm2.get(word)==Integer.MAX_VALUE&&hm.get(word)!=Integer.MAX_VALUE)
-                        {
-                            
-                        }
-                        else
-                        {
-                                hm.put(word,level+1);
-                                int t1=findMinPath(word,endWord,wordList,level+1);
-                                hm2.put(word,t1);
-                                if(t1<min)
-                                {
-                                    min=t1;
-                                }
-                            
-                        
-                        }
-                    }
-                
-            }
-        }
-        return min;
-        
-    }*/
+   
 }
