@@ -15,7 +15,6 @@ class Solution {
             else{
                 high=mid;
             }
-            //System.out.println(low+" "+high+" "+mid+" "+k);
         }
         return k+nums[low];
     }
