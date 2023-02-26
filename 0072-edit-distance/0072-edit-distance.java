@@ -17,14 +17,15 @@ class Solution {
                 else{
                     int min1=1+dp[i+1][j];
                     int min2=1+dp[i][j];
-                    int min3=Integer.MAX_VALUE;
-                    int t2=i;
+                    int min3=1+dp[i][j+1];
+                    //int min3=Integer.MAX_VALUE;
+                    /*int t2=i;
                     while(t2>=0&&word1.charAt(t2)!=word2.charAt(j)){
                         t2--;
                     }
                     if(t2>=0){
                         min3=i-t2+dp[t2][j];
-                    }
+                    }*/
                     int min=Math.min(min1,Math.min(min2,min3));
                     dp[i+1][j+1]=min;
                 }
