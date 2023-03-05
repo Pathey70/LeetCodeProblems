@@ -7,7 +7,8 @@ class Solution {
         boolean flag=true;
         HashMap<Integer,Integer> right=new HashMap<>();
         right.put(arr[n-1],0);
-        while(flag){
+        int j=0;
+        while(j<8){
             flag=false;
             for(int i=n-2;i>=0;i--){
                 int min=dp[i+1]+1;
@@ -20,6 +21,7 @@ class Solution {
                     right.put(arr[i],Math.min(dp[i],right.getOrDefault(arr[i],Integer.MAX_VALUE)));
                 }
             }
+            j++;
         }
         return dp[0];
     }
