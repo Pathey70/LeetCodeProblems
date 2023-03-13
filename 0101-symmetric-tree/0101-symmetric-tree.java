@@ -4,41 +4,28 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    public boolean symmetric(TreeNode left,TreeNode right)
-    {
-        if(left!=null&&right!=null)
-        {
-            if(left.val==right.val)
-                return (symmetric(left.left,right.right)&&symmetric(left.right,right.left));
-            else 
-                return false;
-        }
-        else if(left==null&&right!=null)
-        {
-            return false;
-        }
-        else if(right==null&&left!=null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
     public boolean isSymmetric(TreeNode root) {
         if(root==null)
             return true;
-        if(root.left!=null&&root.right!=null)
-        {
-            return symmetric(root.left,root.right);
-        }
-        if(root.left==null&&root.right==null)
+        return checkSymmetric(root.left,root.right);
+        
+    }
+    public boolean checkSymmetric(TreeNode node1,TreeNode node2){
+        if(node1==null&&node2==null)
             return true;
-        return false;
+        else if(node1==null||node2==null||node1.val!=node2.val)
+            return false;
+        
+        return checkSymmetric(node1.left,node2.right)&&checkSymmetric(node1.right,node2.left);
     }
 }
