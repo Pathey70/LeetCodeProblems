@@ -1,26 +1,23 @@
 class Solution {
     int ans=0;
-    HashMap<List<Integer>,Integer> map;
     public int maxSatisfaction(int[] satisfaction) {
-        map=new HashMap<>();
+        int n=satisfaction.length;
+        int dp[][]=new int[n][n+1];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<=n;j++)
+                dp[i][j]=-1;
+        }
         Arrays.sort(satisfaction);
-        return rec(satisfaction,0,1);
+        return rec(satisfaction,0,1,dp);
         
     }
-    public int rec(int[] satisfaction,int i,int o){
+    public int rec(int[] satisfaction,int i,int o,int dp[][]){
         if(i==satisfaction.length)
             return 0;
-        List<Integer> li=toList(i,o);
-        if(map.containsKey(li))
-            return map.get(li);
-        int max=Math.max(o*satisfaction[i]+rec(satisfaction,i+1,o+1),rec(satisfaction,i+1,o));
-        map.put(li,max);
-        return max;
-    }
-    public List<Integer> toList(int i,int e){
-        List<Integer> li=new ArrayList<Integer>();
-        li.add(i);
-        li.add(e);
-        return li;
+        if(dp[i][o]>=0)
+            return dp[i][o];
+        dp[i][o]=Math.max(o*satisfaction[i]+rec(satisfaction,i+1,o+1,dp),rec(satisfaction,i+1,o,dp));
+        //System.out.println(dp[i][o]+" "+i+" "+o);
+        return dp[i][o];
     }
 }
