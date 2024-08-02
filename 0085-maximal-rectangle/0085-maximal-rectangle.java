@@ -3,7 +3,7 @@ class Solution {
         int n=matrix.length;
         int m=matrix[0].length;
         
-        int rightOnes[][]=new int[n][m];
+        int rightOnes[][]=new int[n+1][m];
         
         for(int i=0;i<n;i++)
         {
@@ -22,7 +22,7 @@ class Solution {
             Stack<Integer> stack=new Stack<Integer>();
             stack.push(-1);
             
-            for(int i=0;i<n;i++)
+            for(int i=0;i<n+1;i++)
             {
                 int p=rightOnes[i][j];
                 //System.out.println(stack);
@@ -33,12 +33,6 @@ class Solution {
                     max=Math.max(max,h*(i-stack.peek()-1));
                 }
                 stack.push(i);
-            }
-            while(stack.peek()!=-1)
-            {
-                int p1=stack.pop();
-                int h=rightOnes[p1][j];
-                max=Math.max(max,h*(n-stack.peek()-1));
             }
           
         }
