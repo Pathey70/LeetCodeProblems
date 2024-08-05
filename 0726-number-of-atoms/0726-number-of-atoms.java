@@ -9,7 +9,6 @@ class Solution {
             else if(formula.charAt(i)==')')
                 paranthesisMap.put(stack.pop(),i);
         }
-        //System.out.println(paranthesisMap);
         TreeMap<String,Integer> freqMap=solve(formula,paranthesisMap,0,formula.length());
         StringBuilder ans=new StringBuilder();
         for(Map.Entry<String,Integer> entry:freqMap.entrySet())
@@ -43,7 +42,6 @@ class Solution {
                     i++;
                 }
                 freq=Math.max(freq,1);
-              //  System.out.println(subTree+" "+freq);
                 for(Map.Entry<String,Integer> entry:subTree.entrySet())
                 {
                     String key=entry.getKey();
@@ -70,7 +68,6 @@ class Solution {
                 }
                 freqMap.put(sb.toString(),freqMap.getOrDefault(sb.toString(),0)+Math.max(1,freq));
             }
-            //System.out.println(i);
         }
         
         return freqMap;
