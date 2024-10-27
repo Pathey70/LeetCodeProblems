@@ -35,11 +35,9 @@ class Solution {
                         int x=state[0];
                         int y=state[1];
                         int steps=state[2];
-                        //System.out.println(x+" "+y+" "+steps);
                         if(x<0||y<0||x==n||y==m||grid[x][y]>0||temp[x][y]<=steps){
                             continue;
                         }
-                        //System.out.println("Here");
                         temp[x][y]=steps;
                         int state11[]={x-1,y,steps+1};
                         int state22[]={x,y-1,steps+1};
@@ -54,7 +52,6 @@ class Solution {
                     {
                         for(int l=0;l<m;l++)
                         {
-                            //System.out.println(temp[k][l]);
                             dp[k][l]+=temp[k][l];
                         }
                     }
@@ -66,10 +63,8 @@ class Solution {
         {
             for(int j=0;j<m;j++)
             {
-                //System.out.print(dp[i][j]+" ");
                 min=Math.min(dp[i][j],min);
             }
-            //System.out.println();
         }
         if(min>=10000)
             return -1;
