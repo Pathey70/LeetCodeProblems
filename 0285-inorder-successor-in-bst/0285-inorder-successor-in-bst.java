@@ -9,27 +9,30 @@
  */
 class Solution {
     TreeNode succs;
-    int smallest;
+    boolean found;
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        smallest=Integer.MAX_VALUE;
-        dfs(root,p);
+        found=false;
+        inOrder(root,p);
         return succs;
     }
-    public void dfs(TreeNode root,TreeNode p)
+    public void inOrder(TreeNode root,TreeNode p)
     {
         if(root==null)
             return;
-        if(root!=p)
+        inOrder(root.left,p);
+        if(found)
         {
-            if(root.val>p.val&&root.val<smallest)
-            {
-                smallest=root.val;
-                succs=root;
-            }
+            succs=root;
+            found=false;
         }
-        if(root.val>p.val)
-            dfs(root.left,p);
-        else
-            dfs(root.right,p);
+        if(root==p)
+        {
+            found=true;
+        }
+        inOrder(root.right,p);
     }
+    
+    
+    
+    
 }
