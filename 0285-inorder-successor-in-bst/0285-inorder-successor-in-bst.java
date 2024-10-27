@@ -27,7 +27,9 @@ class Solution {
                 succs=root;
             }
         }
-        dfs(root.left,p);
-        dfs(root.right,p);
+        if(root.val>p.val)
+            dfs(root.left,p);
+        else
+            dfs(root.right,p);
     }
 }
