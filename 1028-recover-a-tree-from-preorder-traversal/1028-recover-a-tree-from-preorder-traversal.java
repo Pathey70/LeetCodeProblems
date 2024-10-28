@@ -57,10 +57,7 @@ class Solution {
         {
             root.left=generateTree(traversal,ls,end,d+1);
         }
-        else if(rs!=-1)
-        {
-            root.right=generateTree(traversal,rs,end,d+1);
-        }
+        
         
         return root;
     }
