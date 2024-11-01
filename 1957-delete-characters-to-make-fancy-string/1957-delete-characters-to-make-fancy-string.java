@@ -4,12 +4,10 @@ class Solution {
         int i=0;
         while(i<s.length())
         {
-            if(sb.length()>=2&&s.charAt(i)==sb.charAt(sb.length()-1)&&s.charAt(i)==sb.charAt(sb.length()-2))
-            {
-                
-            }else{
-                sb.append(s.charAt(i));
-            }
+            int n=sb.length();
+            char c=s.charAt(i);
+            if(n<2||sb.charAt(n-1)!=c||sb.charAt(n-2)!=c)
+                sb.append(c);
             i++;
         }
         return sb.toString();
